@@ -6,7 +6,6 @@ import 'package:app/controller/key_adressing.controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-final keyAdressingController = new KeyAdressingController();
 
 class GenerateAdressingKey extends StatefulWidget {
   @override
@@ -47,8 +46,8 @@ class _GenerateAdressingKeyState extends State<GenerateAdressingKey> {
       String key = _keyController.text;
       String keyType = selectedKeyType;
       int accountId = 1;
-      keyAdressingController.generateKeyAdressing(
-          key: key, keyType: keyType, accountId: accountId);
+      // keyAdressingController.generateKeyAdressing(
+      //     key: key, keyType: keyType, accountId: accountId);
       Navigator.of(context).popAndPushNamed(AppRoutes.SUCCESS_SCREEN,
           arguments: "Chave gerada com sucesso!");
     } catch (err) {

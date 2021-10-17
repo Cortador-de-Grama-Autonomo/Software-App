@@ -13,24 +13,24 @@ class AdressingKeyPage extends StatefulWidget {
 class _AdressingKeyPageState extends State<AdressingKeyPage> {
   initState() {
     super.initState();
-    getKey();
+    // getKey();
   }
 
-  KeyAdressingController keyAdressingController = KeyAdressingController();
+  // KeyAdressingController keyAdressingController = KeyAdressingController();
 
   List<dynamic> adressingKey = List<dynamic>();
 
-  void getKey() async {
-    try {
-      List<dynamic> adressingKeyResponse = await keyAdressingController.getKeyAdressing(accountId: 1);
-      setState(() {
-        adressingKey = adressingKeyResponse;
-      });
-    } catch (err) {
-      print('erro em mostrar chave');
-      print(err);
-    }
-  }
+  // void getKey() async {
+  //   try {
+  //     List<dynamic> adressingKeyResponse = await keyAdressingController.getKeyAdressing(accountId: 1);
+  //     setState(() {
+  //       adressingKey = adressingKeyResponse;
+  //     });
+  //   } catch (err) {
+  //     print('erro em mostrar chave');
+  //     print(err);
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {

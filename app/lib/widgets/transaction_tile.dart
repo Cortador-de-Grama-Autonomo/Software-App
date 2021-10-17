@@ -3,7 +3,6 @@ import 'dart:ui' as ui;
 
 import 'package:app/model/transaction.model.dart';
 import 'package:app/theme/colors.dart';
-import 'package:esys_flutter_share/esys_flutter_share.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -23,15 +22,6 @@ class TransactionTile extends StatefulWidget {
 class _TransactionTileState extends State<TransactionTile> {
   static GlobalKey previewContainer = new GlobalKey();
 
-  void _shareTransaction() async {
-    RenderRepaintBoundary boundary =
-        previewContainer.currentContext.findRenderObject();
-    ui.Image image = await boundary.toImage();
-    ByteData byteData = await image.toByteData(format: ui.ImageByteFormat.png);
-    await Share.file('Comprovante', 'comprovante.png',
-        byteData.buffer.asUint8List(), 'image/png',
-        text: 'Toma aqui pra pagar seu biscoito :)');
-  }
 
   void _settingModalBottomSheet(context) {
     showModalBottomSheet(
@@ -132,7 +122,6 @@ class _TransactionTileState extends State<TransactionTile> {
               Button(
                 title: "Compartilhar",
                 onPressed: () {
-                  _shareTransaction();
                 },
               ),
             ],
@@ -164,9 +153,7 @@ class _TransactionTileState extends State<TransactionTile> {
                       height: 16,
                       width: 16,
                       decoration: BoxDecoration(
-                          color: widget.transaction.entry
-                              ? greenColor
-                              : dangerColor,
+                      
                           borderRadius: BorderRadius.all(Radius.circular(10))),
                     ),
                     SizedBox(

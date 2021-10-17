@@ -24,7 +24,6 @@ class GeneralTile extends StatefulWidget {
 }
 
 class _GeneralTileState extends State<GeneralTile> {
-  final api = new Api();
 
   @override
   Widget build(BuildContext context) {
@@ -120,15 +119,15 @@ class _GeneralTileState extends State<GeneralTile> {
           actions: <Widget>[
             FlatButton(
               child: Text('Confirmar'),
-              onPressed: () async {
-                try {
-                  await api.delete(route: deletePath + elementID.toString());
-                  callbackMine();
-                  Navigator.of(context).pop();
-                } catch (e) {
-                  throw Exception('Failed to delete element From Server');
-                }
-              },
+              // onPressed: () async {
+              //   try {
+              //     await api.delete(route: deletePath + elementID.toString());
+              //     callbackMine();
+              //     Navigator.of(context).pop();
+              //   } catch (e) {
+              //     throw Exception('Failed to delete element From Server');
+              //   }
+              // },
             ),
           ],
         );

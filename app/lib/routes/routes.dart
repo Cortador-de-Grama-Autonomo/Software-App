@@ -19,19 +19,19 @@ import 'package:app/view/payment/payment_manual/payment_manual.dart';
 class Routes {
   static Map<String, Widget Function(BuildContext)> routes = {
     AppRoutes.HOME_PAGE: (tcx) => HomePage(),
-    AppRoutes.PAYMENT_PAGE: (tcx) => PaymentPage(),
+    // AppRoutes.PAYMENT_PAGE: (tcx) => PaymentPage(),
     AppRoutes.QR_CODE_PAGE: (tcx) => QrCodePage(),
     AppRoutes.SUCCESS_SCREEN: (tcx) => SuccesScreen(),
     AppRoutes.ERROR_SCREEN: (tcx) => ErrorScreen(),
-    AppRoutes.STATIC_QR_CODE: (tcx) => StaticQrCodePage(),
-    AppRoutes.GENERATE_QR_CODE: (tcx) => GenerateQr(),
+    // AppRoutes.STATIC_QR_CODE: (tcx) => StaticQrCodePage(),
+    // AppRoutes.GENERATE_QR_CODE: (tcx) => GenerateQr(),
     AppRoutes.SPLASH_PAGE: (tcx) => Splash(),
     AppRoutes.LOGIN_PAGE: (tcx) => Login(),
     AppRoutes.ADRESSING_KEY: (tcx) => AdressingKeyPage(),
     AppRoutes.GENERATE_ADRESSING_KEY: (tcx) => GenerateAdressingKey(),
-    AppRoutes.CONFIRM_PAYMENT: (tcx) => Payment(),
-    AppRoutes.PAYMENT_MANUAL: (tcx) => PaymentManual(),
-    AppRoutes.ADRESSING_PAYMENT: (tcx) => AddressingPayment(),
+    // AppRoutes.CONFIRM_PAYMENT: (tcx) => Payment(),
+    // AppRoutes.PAYMENT_MANUAL: (tcx) => PaymentManual(),
+    // AppRoutes.ADRESSING_PAYMENT: (tcx) => AddressingPayment(),
     AppRoutes.TRANSACTIONS: (tcx) => Transactions(),
   };
 }

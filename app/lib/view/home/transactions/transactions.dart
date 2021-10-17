@@ -18,9 +18,7 @@ class _TransactionsState extends State<Transactions> {
   int _page = 1;
   bool canScroll = true;
   List<TransactionModel> transactions = List<TransactionModel>();
-  TransactionController transactionController = TransactionController();
   String balance = "0";
-  HomeController homecontroller = HomeController();
 
   dynamic person;
   dynamic account;
@@ -40,24 +38,24 @@ class _TransactionsState extends State<Transactions> {
   @override
   initState() {
     super.initState();
-    getUserData().then((value) => {
+    // getUserData().then((value) => {
 
-      getTransactions(
-        agencyNumber: account["branch_code"],
-        accountNumber: account["account_number"]),
-      getBalance(account["branch_code"], account["account_number"]),
-       _scrollController.addListener(() {
-      if (canScroll &&
-          _scrollController.position.pixels ==
-              _scrollController.position.maxScrollExtent) {
-        getTransactions(
-            isScroll: true,
-            agencyNumber: account["branch_code"],
-            accountNumber: account["account_number"]);
-      }
-    })
+    //   getTransactions(
+    //     agencyNumber: account["branch_code"],
+    //     accountNumber: account["account_number"]),
+    //   getBalance(account["branch_code"], account["account_number"]),
+    //    _scrollController.addListener(() {
+    //   if (canScroll &&
+    //       _scrollController.position.pixels ==
+    //           _scrollController.position.maxScrollExtent) {
+    //     getTransactions(
+    //         isScroll: true,
+    //         agencyNumber: account["branch_code"],
+    //         accountNumber: account["account_number"]);
+    //   }
+    // })
 
-    });
+    // });
     // getTransactions(
     //     agencyNumber: account["branch_code"],
     //     accountNumber: account["account_number"]);
@@ -74,57 +72,56 @@ class _TransactionsState extends State<Transactions> {
     // });
   }
 
-  void getBalance(String agencyNumber, String accountNumber) async {
+  // void getBalance(String agencyNumber, String accountNumber) async {
 
-    try {
-      String balanceResponse =
-          await homecontroller.getBalance(agencyNumber, accountNumber);
-      setState(() {
-        balance = balanceResponse;
-      });
-    } catch (err) {
-      setState(() {
-        balance = "0";
-      });
-    }
-  }
+  //   try {
+  //     String balanceResponse =
+  //     // setState(() {
+  //     //   balance = balanceResponse;
+  //     // });
+  //   } catch (err) {
+  //     setState(() {
+  //       balance = "0";
+  //     });
+  //   }
+  // }
 
-  void getTransactions(
-      {isScroll = false, String agencyNumber, String accountNumber}) async {
-    try {
+  // void getTransactions(
+  //     {isScroll = false, String agencyNumber, String accountNumber}) async {
+  //   try {
 
-      List<dynamic> response = await transactionController.getAllTransactions(
-        agencyNumber,
-        accountNumber,
-      );
+  //     List<dynamic> response = await transactionController.getAllTransactions(
+  //       agencyNumber,
+  //       accountNumber,
+  //     );
 
-      setState(() {
-        if (isScroll) {
-          transactions = [...transactions, ...response];
-        } else {
-          transactions = [...response];
-        }
+  //     setState(() {
+  //       if (isScroll) {
+  //         transactions = [...transactions, ...response];
+  //       } else {
+  //         transactions = [...response];
+  //       }
 
-        if (response.length != null ||
-            response.length == 0 ||
-            response.length < 8) {
-          canScroll = false;
-        }
+  //       if (response.length != null ||
+  //           response.length == 0 ||
+  //           response.length < 8) {
+  //         canScroll = false;
+  //       }
 
-        if (isScroll) {
-          _page = _page + 1;
-        } else {
-          _page = 1;
-        }
-      });
-    } catch (e) {
-      setState(() {
-        transactions = [];
-      });
+  //       if (isScroll) {
+  //         _page = _page + 1;
+  //       } else {
+  //         _page = 1;
+  //       }
+  //     });
+  //   } catch (e) {
+  //     setState(() {
+  //       transactions = [];
+  //     });
 
-      throw Exception('Failed to get Transactions List From Server');
-    }
-  }
+  //     throw Exception('Failed to get Transactions List From Server');
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {

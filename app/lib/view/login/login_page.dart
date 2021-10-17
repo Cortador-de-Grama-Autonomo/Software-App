@@ -39,11 +39,11 @@ class _LoginState extends State<Login> {
         ],
       ),
       onPressed: () async {
-        Auth auth = Auth(authProtocol: KeycloakAuth());
-        bool logged = await auth.auth();
-        if (logged) {
-          Navigator.of(context).pushNamed(AppRoutes.HOME_PAGE);
-        }
+        // Auth auth = Auth(authProtocol: KeycloakAuth());
+        // bool logged = await auth.auth();
+        // if (logged) {
+        //   Navigator.of(context).pushNamed(AppRoutes.HOME_PAGE);
+        // }
       },
     ));
   }

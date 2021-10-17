@@ -17,7 +17,7 @@ class _SplashState extends State<Splash> with TickerProviderStateMixin {
   goTo() {
     new Future.delayed(
       const Duration(seconds: 3),
-      () => Navigator.of(context).pushNamed(AppRoutes.LOGIN_PAGE),
+      () => Navigator.of(context).pushNamed(AppRoutes.HOME_PAGE),
     );
   }
 
@@ -46,7 +46,6 @@ class _SplashState extends State<Splash> with TickerProviderStateMixin {
             ),
           ),
         ),
-        isMaterialAppTheme: true,
         child: Stack(
           children: <Widget>[
             SplashScreen(
@@ -65,7 +64,7 @@ class _SplashState extends State<Splash> with TickerProviderStateMixin {
                       padding: EdgeInsets.only(
                           left: 32.0, right: 32.0, bottom: 16.0),
                       child: Image(
-                        image: AssetImage('lib/assets/images/app_logo.png'),
+                        image: AssetImage('lib/assets/images/logo-app.png'),
                         width: 240,
                       ),
                     ),

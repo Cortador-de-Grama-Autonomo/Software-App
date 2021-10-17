@@ -69,7 +69,6 @@ class BaseScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         leading: getPageIconButton(),
       ),
-      resizeToAvoidBottomPadding: false,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[

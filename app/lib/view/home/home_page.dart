@@ -7,7 +7,6 @@ import 'package:app/theme/colors.dart';
 import 'package:app/widgets/buttonWithIcon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 
 
@@ -19,11 +18,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  HomeController homecontroller = HomeController();
+  // HomeController homecontroller = HomeController();
   String balance = "0";
   String cashIn = "0";
   String cashOut = "0";
-  dynamic person;
   dynamic account;
 
   Future<void> getUserData() async {
@@ -35,31 +33,31 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     print("atualizou");
 
-    getUserData().then((value) =>
-        {getBalance(account["branch_code"], account["account_number"])});
+    // getUserData().then((value) =>
+    //     {getBalance(account["branch_code"], account["account_number"])});
   }
 
-  void getBalance(String agencyNumber, String accountNumber) async {
-    try {
-      String balanceResponse =
-          await homecontroller.getBalance(agencyNumber, accountNumber);
-      setState(() {
-        balance = balanceResponse;
-      });
+  // void getBalance(String agencyNumber, String accountNumber) async {
+  //   try {
+  //     String balanceResponse =
+  //         await homecontroller.getBalance(agencyNumber, accountNumber);
+  //     setState(() {
+  //       balance = balanceResponse;
+  //     });
 
-      String cashInResponse =
-          await homecontroller.getCashIN(agencyNumber, accountNumber);
-      setState(() {
-        cashIn = cashInResponse;
-      });
+  //     String cashInResponse =
+  //         await homecontroller.getCashIN(agencyNumber, accountNumber);
+  //     setState(() {
+  //       cashIn = cashInResponse;
+  //     });
 
-      String cashOutResponse =
-          await homecontroller.getCashOut(agencyNumber, accountNumber);
-      setState(() {
-        cashOut = cashOutResponse;
-      });
-    } catch (err) {}
-  }
+  //     String cashOutResponse =
+  //         await homecontroller.getCashOut(agencyNumber, accountNumber);
+  //     setState(() {
+  //       cashOut = cashOutResponse;
+  //     });
+  //   } catch (err) {}
+  // }
 
   InkWell renderBalanceCard(BuildContext context) {
     return InkWell(
@@ -141,20 +139,20 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Bom dia ${person["pf_name"]}!',
+                    'Bom dia Nalu!',
                     style: Theme.of(context).textTheme.headline1.copyWith(color: primaryColor)
                   ),
                   SizedBox(height: 24),
                   
                   Text(
-                      'Cortador conectado: ${person["pj_name"]}',
+                      'Cortador conectado: ',
                       style: Theme.of(context)
                           .textTheme
                           .headline2
                           .copyWith(fontWeight: FontWeight.w600, color: primaryColor),
                     ),
                   Text(
-                    'Horário de corte:  ${account["branch_code"]}',
+                    'Horário de corte:  10:00',
                     style: Theme.of(context).textTheme.headline3.copyWith(color:tertiartColor)
                   ),
           
@@ -171,9 +169,6 @@ class _HomePageState extends State<HomePage> {
                   bottomLeft: const Radius.circular(8.0),
                   bottomRight: const Radius.circular(8.0),
                 ),
-              ),
-              child: Text(
-                'Sua ultima compra em Subway no valor de R\$ 25,00',
               ),
             ),
           ],
@@ -236,9 +231,7 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                person != null && account != null
-                    ? renderHomeHeader()
-                    : Container(),
+                    renderHomeHeader(),
                 Padding(
                   padding: EdgeInsets.all(10.0),
                 ),
