@@ -2,7 +2,7 @@
 <br>
 <h1 align="center" > Smart Grass</h1>
 <br>
-<p align="center"><img width="200"src="https://imgur.com/a/lASyBfl"> </p>
+<p align="center"><img width="200"src="https://imgur.com/d028I1z"> </p>
 <p align="center"> Manual de instalação do aplicativo</p>
 <br>
 
