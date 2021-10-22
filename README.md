@@ -2,10 +2,9 @@
 <br>
 <h1 align="center" > Smart Grass</h1>
 <br>
-<p align="center"><img width="200"src="https://imgur.com/d028I1z"> </p>
+<p align="center"><img width="200"src="https://github.com/Cortador-de-Grama-Autonomo/Software-App/blob/main/app/lib/assets/images/logo-app.png"> </p>
 <p align="center"> Manual de instalação do aplicativo</p>
 <br>
-![ss](https://github.com/Cortador-de-Grama-Autonomo/Software-App/blob/main/app/lib/assets/images/logo-app.png)
 
 ### Dependências
 
