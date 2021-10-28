@@ -109,6 +109,7 @@ class _HomePageState extends State<HomePage> {
               ),
               child: Text(
                 'Rota Atual:          Praça Norte',
+                style: Theme.of(context).textTheme.headline3.copyWith(color: Colors.white)
               ),
             ),
           ],
@@ -160,17 +161,6 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            Container(
-              width: double.infinity,
-              padding: EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: primaryColor,
-                borderRadius: new BorderRadius.only(
-                  bottomLeft: const Radius.circular(8.0),
-                  bottomRight: const Radius.circular(8.0),
-                ),
-              ),
-            ),
           ],
         ),
       ),
@@ -189,8 +179,9 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text('Ligar'),
-              Text('Desligar'),
+              Text('Ligar', style: Theme.of(context).textTheme.headline3.copyWith(color: Colors.white)),
+              Text('Desligar', style: Theme.of(context).textTheme.headline3.copyWith(color: Colors.white)),
+              Icon(Icons.power_settings_new,  color: Colors.white),
             ],
           ),
         ),
@@ -209,7 +200,10 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text('Pausar cortador'),
+              Text('Pausar cortador',
+              style: Theme.of(context).textTheme.headline3.copyWith(color: Colors.white),
+              ),
+              Icon(Icons.pause, color: Colors.white,),
             ],
           ),
         ),
@@ -273,7 +267,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         ButtonWithIcon(
                           title: 'Notificações',
-                          icon: Icons.payment,
+                          icon: Icons.info_outline,
                           onPressed: () {
                             Navigator.of(context)
                                 .pushNamed(AppRoutes.PAYMENT_MANUAL);
@@ -288,7 +282,7 @@ class _HomePageState extends State<HomePage> {
                       children: <Widget>[
                         ButtonWithIcon(
                           title: 'Mapeamento',
-                          icon: Icons.vpn_key,
+                          icon: Icons.map,
                           onPressed: () {
                             Navigator.of(context)
                                 .pushNamed(AppRoutes.ADRESSING_KEY);
@@ -299,7 +293,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         ButtonWithIcon(
                           title: 'Configurações',
-                          icon: Icons.timeline,
+                          icon: Icons.settings,
                           onPressed: () {
                             Navigator.of(context)
                                 .pushNamed(AppRoutes.DASHBOARD_PAGE);

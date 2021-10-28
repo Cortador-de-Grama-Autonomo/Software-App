@@ -34,7 +34,8 @@ class ButtonWithIcon extends StatelessWidget {
                   width:
                       16, // here put the desired space between the icon and the text
                 ),
-                Text(title),
+                Text(title,
+                style: Theme.of(context).textTheme.headline3.copyWith(color: Colors.white)),
               ],
             ),
             onTap: onPressed,
