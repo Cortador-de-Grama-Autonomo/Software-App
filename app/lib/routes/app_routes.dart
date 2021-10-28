@@ -26,6 +26,7 @@ class AppRoutes {
   static const CORTE = '/qr-code/corte';
   static const AGENDAR = '/qr-code/agendamento';
   static const MAPA = '/payment/mapa';
+  static const ADD_AREA = '/payment/add_area';
 
 
 

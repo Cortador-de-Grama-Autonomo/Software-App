@@ -3,6 +3,7 @@ import 'package:app/theme/colors.dart';
 import 'package:app/view/payment/confirm_payment/payment.dart';
 import 'package:app/widgets/base_screen.dart';
 import 'package:app/widgets/button.dart';
+import 'package:app/widgets/otherbutton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -104,32 +105,31 @@ class _MapaState extends State<Mapa> {
                 ],
               ),
             ),
-            Container(
-              height: 350,
-              alignment: Alignment.centerLeft,
-              child: FlutterMap(
-              options: MapOptions(
 
-                // Coordenada central do mapa.
-                  center: LatLng(-15.799862, -47.864195),
-                  // Quantidade de zoom do mapa.
-                  zoom: 17),
-              layers: [
-                // Url do mapa.
-                TileLayerOptions(
-                  urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                ),
-              ],
-            ),
-            ),
           
           ],
         ),
       ),
       onPressed: () {
-              Navigator.of(context).pushNamed(AppRoutes.TRANSACTIONS);}
+      }
       ),
     ),
+
+    SizedBox(height: 16),
+
+     Button(
+          title: "Adicionar Área",
+          onPressed: () {
+            Navigator.of(context).pushNamed(AppRoutes.ADD_AREA);
+        }
+      ),
+
+      ButtonOther(
+          title: "Selecionar",
+          onPressed: () {
+            Navigator.of(context).pushNamed(AppRoutes.TRANSACTIONS);
+        }
+      ),
  
     
 

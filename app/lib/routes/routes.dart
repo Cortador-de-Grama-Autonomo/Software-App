@@ -2,6 +2,7 @@ import 'package:app/view/adressing_key/dispositivos_conectados.dart';
 import 'package:app/view/adressing_key/generate_adressing_key.dart';
 import 'package:app/view/home/home_page.dart';
 import 'package:app/view/home/transactions/transactions.dart';
+import 'package:app/view/payment/add_area.dart';
 import 'package:app/view/payment/addressing/addressing_payment.dart';
 import 'package:app/view/payment/confirm_payment/payment.dart';
 import 'package:app/view/payment/mapa.dart';
@@ -27,7 +28,7 @@ class Routes {
     AppRoutes.QR_CODE_PAGE: (tcx) => QrCodePage(),
     AppRoutes.SUCCESS_SCREEN: (tcx) => SuccesScreen(),
     AppRoutes.ERROR_SCREEN: (tcx) => ErrorScreen(),
-    //AppRoutes.STATIC_QR_CODE: (tcx) => ScanScreen(),
+    AppRoutes.STATIC_QR_CODE: (tcx) => ScanScreen(),
     // AppRoutes.GENERATE_QR_CODE: (tcx) => GenerateQr(),
     AppRoutes.SPLASH_PAGE: (tcx) => Splash(),
     AppRoutes.LOGIN_PAGE: (tcx) => Login(),
@@ -41,6 +42,8 @@ class Routes {
     AppRoutes.CORTE: (tcx) => Corte(),
     AppRoutes.AGENDAR: (tcx) => Agendar(),
     AppRoutes.MAPA: (tcx) => Mapa(),
+    AppRoutes.ADD_AREA: (tcx) => AddArea(),
+
 
 
 

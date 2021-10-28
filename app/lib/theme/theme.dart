@@ -10,7 +10,7 @@ ThemeData _buildSmartTheme() {
 return base.copyWith(
     primaryColor: primaryColor,
     accentColor: secondaryColor,
-    errorColor: dangerColor,
+    errorColor: tertiartColor,
     primaryColorDark: darkColor,
     primaryColorLight: Colors.white,
     cardColor: lightColor,
