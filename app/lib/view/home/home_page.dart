@@ -7,6 +7,8 @@ import 'package:app/theme/colors.dart';
 import 'package:app/widgets/buttonWithIcon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:latlong/latlong.dart';
 
 
 
@@ -81,19 +83,25 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Saldo disponível',
-                    style: Theme.of(context).textTheme.headline3,
-                  ),
-                  SizedBox(height: 24),
-                  Padding(
-                    padding: EdgeInsets.only(left: 16),
-                    child: Text(
-                      "R\$ ${double.parse(balance).toStringAsFixed(2)}",
-                      style: Theme.of(context).textTheme.headline1,
-                    ),
-                  ),
-                  SizedBox(height: 16),
+                   Container(
+                    height: 110,
+                    alignment: Alignment.centerLeft,
+                    child: FlutterMap(
+                    options: MapOptions(
+
+                      // Coordenada central do mapa.
+                        center: LatLng(-15.799862, -47.864195),
+                        // Quantidade de zoom do mapa.
+                        zoom: 17),
+                    layers: [
+                      // Url do mapa.
+                      TileLayerOptions(
+                        urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                ),
+              ],
+            ),
+            ),
+             
                 ],
               ),
             ),
@@ -285,7 +293,7 @@ class _HomePageState extends State<HomePage> {
                           icon: Icons.map,
                           onPressed: () {
                             Navigator.of(context)
-                                .pushNamed(AppRoutes.ADRESSING_KEY);
+                                .pushNamed(AppRoutes.MAPA);
                           },
                         ),
                         SizedBox(

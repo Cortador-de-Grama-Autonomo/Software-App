@@ -15,7 +15,7 @@ class Button extends StatelessWidget {
       child: RaisedButton(
         onPressed: onPressed,
         elevation: 3,
-        disabledColor: Theme.of(context).disabledColor,
+        disabledColor: Theme.of(context).accentColor,
         child: Text(
           title,
           style: TextStyle(

@@ -4,6 +4,7 @@ import 'package:app/view/home/home_page.dart';
 import 'package:app/view/home/transactions/transactions.dart';
 import 'package:app/view/payment/addressing/addressing_payment.dart';
 import 'package:app/view/payment/confirm_payment/payment.dart';
+import 'package:app/view/payment/mapa.dart';
 import 'package:app/view/payment/payment_page.dart';
 import 'package:app/view/qr_codes/qr_codes.dart';
 import 'package:app/view/qr_codes/static/agendamento.dart';
@@ -36,8 +37,10 @@ class Routes {
     AppRoutes.PAYMENT_MANUAL: (tcx) => PaymentManual(),
     // AppRoutes.ADRESSING_PAYMENT: (tcx) => AddressingPayment(),
     AppRoutes.TRANSACTIONS: (tcx) => Transactions(),
+    AppRoutes.CONFIG: (tcx) => Configuracao(),
     AppRoutes.CORTE: (tcx) => Corte(),
     AppRoutes.AGENDAR: (tcx) => Agendar(),
+    AppRoutes.MAPA: (tcx) => Mapa(),
 
 
 

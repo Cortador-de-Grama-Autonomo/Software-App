@@ -5,13 +5,17 @@ import 'package:app/widgets/base_screen.dart';
 import 'package:app/widgets/button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:latlong/latlong.dart';
 
-class PaymentManual extends StatefulWidget {
+
+
+class Mapa extends StatefulWidget {
   @override
-  _PaymentManualState createState() => _PaymentManualState();
+  _MapaState createState() => _MapaState();
 }
 
-class _PaymentManualState extends State<PaymentManual> {
+class _MapaState extends State<Mapa> {
   initState() {
     super.initState();
   }
@@ -54,21 +58,8 @@ class _PaymentManualState extends State<PaymentManual> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Atenção',
-                    style: Theme.of(context).textTheme.headline4.copyWith(color: primaryColor)
-                  ),
-                  SizedBox(height: 24),
-                  
-                  Text(
-                      'Cortador de grama com baixo...',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline3
-                          .copyWith(fontWeight: FontWeight.w600, color: primaryColor),
-                    ),
-                  Text(
-                    '27 Out 2021',
-                    style: Theme.of(context).textTheme.headline3.copyWith(color:tertiartColor)
+                    'Praça Norte',
+                    style: Theme.of(context).textTheme.headline3.copyWith(color: darkColor)
                   ),
           
                   SizedBox(height: 16),
@@ -104,78 +95,34 @@ class _PaymentManualState extends State<PaymentManual> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Desvio',
-                    style: Theme.of(context).textTheme.headline4.copyWith(color: primaryColor)
+                    'Gramado FGA',
+                    style: Theme.of(context).textTheme.headline3.copyWith(color: darkColor)
                   ),
-                  SizedBox(height: 24),
-                  
-                  Text(
-                      'Obstaculo encontrado!',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline3
-                          .copyWith(fontWeight: FontWeight.w600, color: primaryColor),
-                    ),
-                  Text(
-                    '27 Out 2021',
-                    style: Theme.of(context).textTheme.headline3.copyWith(color:tertiartColor)
-                  ),
+                 
           
                   SizedBox(height: 16),
                 ],
               ),
             ),
-            
-          ],
-        ),
-      ),
-      onPressed: () {
-              Navigator.of(context).pushNamed(AppRoutes.TRANSACTIONS);}
-      ),
-    ),
-    Container(
-          child: RaisedButton( 
-            color: lightColor,
-          child:  Card(
-        elevation: 3,
-        color: lightColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
             Container(
-              width: double.infinity,
-              padding: EdgeInsets.all(16),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Concluído',
-                    style: Theme.of(context).textTheme.headline4.copyWith(color: primaryColor)
-                  ),
-                  SizedBox(height: 24),
-                  
-                  Text(
-                      'Corte finalizado',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline3
-                          .copyWith(fontWeight: FontWeight.w600, color: primaryColor),
-                    ),
-                  Text(
-                    '27 Out 2021',
-                    style: Theme.of(context).textTheme.headline3.copyWith(color:tertiartColor)
-                  ),
-          
-                  SizedBox(height: 16),
-                ],
-              ),
+              height: 350,
+              alignment: Alignment.centerLeft,
+              child: FlutterMap(
+              options: MapOptions(
+
+                // Coordenada central do mapa.
+                  center: LatLng(-15.799862, -47.864195),
+                  // Quantidade de zoom do mapa.
+                  zoom: 17),
+              layers: [
+                // Url do mapa.
+                TileLayerOptions(
+                  urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                ),
+              ],
             ),
-            
+            ),
+          
           ],
         ),
       ),
@@ -183,6 +130,7 @@ class _PaymentManualState extends State<PaymentManual> {
               Navigator.of(context).pushNamed(AppRoutes.TRANSACTIONS);}
       ),
     ),
+ 
     
 
 
@@ -220,7 +168,7 @@ class _PaymentManualState extends State<PaymentManual> {
     );
 
     return BaseScreen(
-      topTitle: "Notificações",
+      topTitle: "Mapeamento",
       body: body,
     );
   }

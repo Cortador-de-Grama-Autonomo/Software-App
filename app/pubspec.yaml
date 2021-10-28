@@ -21,6 +21,8 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  flutter_map: ^0.8.2
+  latlong: ^0.6.1
   flutter_masked_text: ^0.7.0
   qr_flutter: ^4.0.0
   form_validator: ">=0.1.1 <2.0.0"
@@ -66,7 +68,6 @@ flutter:
     - lib/assets/images/error.png
     - lib/assets/images/success.png
     - lib/assets/images/logo-app.png
-    - lib/assets/images/fundo.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
