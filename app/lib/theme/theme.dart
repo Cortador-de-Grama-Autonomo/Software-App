@@ -15,9 +15,9 @@ return base.copyWith(
     primaryColorLight: Colors.white,
     cardColor: lightColor,
     buttonTheme: base.buttonTheme.copyWith(
-        buttonColor: primaryColor,
+        buttonColor: secondaryColor,
         textTheme: ButtonTextTheme.primary,
-        disabledColor: Colors.grey[800],
+        disabledColor: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         minWidth: double.infinity,
         padding: EdgeInsets.symmetric(vertical: 16)),
