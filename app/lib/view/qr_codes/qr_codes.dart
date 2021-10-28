@@ -9,22 +9,22 @@ class QrCodePage extends StatelessWidget {
     Widget body = Column(
       children: <Widget>[
         MainTile(
-          title: 'Qr Code Estático',
+          title: 'Ler Qr Code',
           onTap: () {
             Navigator.of(context).pushNamed(AppRoutes.STATIC_QR_CODE);
           },
         ),
         MainTile(
-          title: 'Qr Code Dinâmico',
+          title: 'Dispositivos Conectados',
           onTap: () {
-            Navigator.of(context).pushNamed(AppRoutes.DYNAMIC_QR_CODE);
+            Navigator.of(context).pushNamed(AppRoutes.ADRESSING_KEY);
           },
         ),
       ],
     );
 
     return BaseScreen(
-      topTitle: "QR Codes",
+      topTitle: "Cortador",
       bottomTitle: "",
       body: body,
     );

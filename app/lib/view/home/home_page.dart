@@ -276,7 +276,7 @@ class _HomePageState extends State<HomePage> {
                           icon: Icons.payment,
                           onPressed: () {
                             Navigator.of(context)
-                                .pushNamed(AppRoutes.PAYMENT_PAGE);
+                                .pushNamed(AppRoutes.PAYMENT_MANUAL);
                           },
                         )
                       ],

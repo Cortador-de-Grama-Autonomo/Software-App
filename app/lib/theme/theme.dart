@@ -51,6 +51,12 @@ return base.copyWith(
         color: darkColor,
         fontWeight: FontWeight.w600,
       ),
+      headline4: TextStyle(
+        fontFamily: 'Roboto',
+        fontSize: 24,
+        fontWeight: FontWeight.w600,
+        color: primaryColor,
+      ),
       
     ),
   );

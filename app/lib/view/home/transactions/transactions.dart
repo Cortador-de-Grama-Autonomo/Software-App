@@ -2,10 +2,10 @@ import 'package:app/controller/home.controller.dart';
 import 'package:app/controller/transaction.controller.dart';
 import 'package:app/model/transaction.model.dart';
 import 'package:app/theme/colors.dart';
+import 'package:app/widgets/base_screen.dart';
 import 'package:app/widgets/transaction_tile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 
 class Transactions extends StatefulWidget {
@@ -23,105 +23,16 @@ class _TransactionsState extends State<Transactions> {
   dynamic person;
   dynamic account;
 
-  Future<void> getUserData() async {
-    // SharedPreferences localStorage = await SharedPreferences.getInstance();
-    // String personStorage = localStorage.getString('person');
-    // String accountStorage = localStorage.getString('account');
 
-    // setState(() {
-    //   person = jsonDecode(personStorage);
-    //   account = jsonDecode(accountStorage);
-
-    // });
-  }
 
   @override
   initState() {
     super.initState();
-    // getUserData().then((value) => {
-
-    //   getTransactions(
-    //     agencyNumber: account["branch_code"],
-    //     accountNumber: account["account_number"]),
-    //   getBalance(account["branch_code"], account["account_number"]),
-    //    _scrollController.addListener(() {
-    //   if (canScroll &&
-    //       _scrollController.position.pixels ==
-    //           _scrollController.position.maxScrollExtent) {
-    //     getTransactions(
-    //         isScroll: true,
-    //         agencyNumber: account["branch_code"],
-    //         accountNumber: account["account_number"]);
-    //   }
-    // })
-
-    // });
-    // getTransactions(
-    //     agencyNumber: account["branch_code"],
-    //     accountNumber: account["account_number"]);
-    // getBalance(account["branch_code"], account["account_number"]);
-    // _scrollController.addListener(() {
-    //   if (canScroll &&
-    //       _scrollController.position.pixels ==
-    //           _scrollController.position.maxScrollExtent) {
-    //     getTransactions(
-    //         isScroll: true,
-    //         agencyNumber: account["branch_code"],
-    //         accountNumber: account["account_number"]);
-    //   }
-    // });
+  
   }
 
-  // void getBalance(String agencyNumber, String accountNumber) async {
 
-  //   try {
-  //     String balanceResponse =
-  //     // setState(() {
-  //     //   balance = balanceResponse;
-  //     // });
-  //   } catch (err) {
-  //     setState(() {
-  //       balance = "0";
-  //     });
-  //   }
-  // }
-
-  // void getTransactions(
-  //     {isScroll = false, String agencyNumber, String accountNumber}) async {
-  //   try {
-
-  //     List<dynamic> response = await transactionController.getAllTransactions(
-  //       agencyNumber,
-  //       accountNumber,
-  //     );
-
-  //     setState(() {
-  //       if (isScroll) {
-  //         transactions = [...transactions, ...response];
-  //       } else {
-  //         transactions = [...response];
-  //       }
-
-  //       if (response.length != null ||
-  //           response.length == 0 ||
-  //           response.length < 8) {
-  //         canScroll = false;
-  //       }
-
-  //       if (isScroll) {
-  //         _page = _page + 1;
-  //       } else {
-  //         _page = 1;
-  //       }
-  //     });
-  //   } catch (e) {
-  //     setState(() {
-  //       transactions = [];
-  //     });
-
-  //     throw Exception('Failed to get Transactions List From Server');
-  //   }
-  // }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -138,13 +49,22 @@ class _TransactionsState extends State<Transactions> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Saldo disponível',
-                    style: Theme.of(context).textTheme.headline3,
-                    textAlign: TextAlign.start,
+                    'Atenção',
+                    style: Theme.of(context).textTheme.headline1,
+
+                  ),
+                  SizedBox(
+                    height: 32,
                   ),
                   Text(
-                    "R\$ ${double.parse(balance).toStringAsFixed(2)}",
-                    style: Theme.of(context).textTheme.headline1,
+                    '27/10/2021',
+                    style: Theme.of(context).textTheme.headline3,
+                  ),
+                  SizedBox(
+                    height: 32,
+                  ),
+                  Text(
+                    "Cortador de grama com baixo nível de energia. Conecte o cortados a fonte de energia.",
                   ),
                   SizedBox(
                     height: 32,
@@ -169,17 +89,10 @@ class _TransactionsState extends State<Transactions> {
       ),
     );
 
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        iconTheme: IconThemeData(color: darkColor),
-        backgroundColor: Colors.white,
-        leading: IconButton(
-          icon: new Icon(Icons.arrow_back),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-      ),
+     return BaseScreen(
       body: body,
+      
     );
   }
+  
 }

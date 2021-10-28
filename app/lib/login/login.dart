@@ -53,7 +53,7 @@ class _LoginState extends State<Login> with TickerProviderStateMixin {
         children: <Widget>[
           Positioned.fill(
             child: Image.asset(
-              "lib/assets/images/fundo.jpg",
+              "lib/assets/images/fundo.png",
               fit: BoxFit.fitWidth,
               alignment: Alignment.bottomLeft,
             ),

@@ -6,6 +6,8 @@ import 'package:app/controller/key_adressing.controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'dispositivos_conectados.dart';
+
 
 class GenerateAdressingKey extends StatefulWidget {
   @override
@@ -18,94 +20,8 @@ class _GenerateAdressingKeyState extends State<GenerateAdressingKey> {
   }
 
   bool _isButtonAvaible = false;
-  String selectedKeyType;
-  final keyTypes = ["CPF/CNPJ", "Email", "Celular"];
-
-
-  final _keyController = TextEditingController();
-
-  void verifyInputHasText(text) {
-    if (selectedKeyType != '' && _keyController.text != '') {
-      setState(() {
-        _isButtonAvaible = true;
-      });
-    } else {
-      setState(() {
-        _isButtonAvaible = false;
-      });
-    }
-  }
-
-  void dispose() {
-    _keyController.dispose();
-    super.dispose();
-  }
-
-  void generateAdressingKey(BuildContext context) async {
-    try {
-      String key = _keyController.text;
-      String keyType = selectedKeyType;
-      int accountId = 1;
-      // keyAdressingController.generateKeyAdressing(
-      //     key: key, keyType: keyType, accountId: accountId);
-      Navigator.of(context).popAndPushNamed(AppRoutes.SUCCESS_SCREEN,
-          arguments: "Chave gerada com sucesso!");
-    } catch (err) {
-      Navigator.of(context)
-          .popAndPushNamed(AppRoutes.ERROR_SCREEN, arguments: err["message"]);
-    }
-  }
-
-  Widget renderInputType() {
-    switch (selectedKeyType) {
-      case "CPF/CNPJ":
-        return TextField(
-          style: TextStyle(
-            color: Theme.of(context).primaryColorDark,
-          ),
-          
-          controller: _keyController,
-          keyboardType: TextInputType.number,
-          onChanged: verifyInputHasText,
-          decoration: InputDecoration(
-            hintText: 'XXX.XXX.XXX-XX',
-            labelText: 'Cpf',
-            border: OutlineInputBorder(),
-          ),
-        );
-      case "Email":
-        return TextField(
-          style: TextStyle(
-            color: Theme.of(context).primaryColorDark,
-          ),
-          controller: _keyController,
-          keyboardType: TextInputType.multiline,
-          onChanged: verifyInputHasText,
-          decoration: InputDecoration(
-            hintText: 'exemplo@email.com',
-            labelText: 'Email',
-            border: OutlineInputBorder(),
-          ),
-        );
-      case "Celular":
-        return TextField(
-          style: TextStyle(
-            color: Theme.of(context).primaryColorDark,
-          ),
-          controller: _keyController,
-    
-          keyboardType: TextInputType.number,
-          onChanged: verifyInputHasText,
-          decoration: InputDecoration(
-            hintText: '(99) 9 9999-9999',
-            labelText: 'Celular',
-            border: OutlineInputBorder(),
-          ),
-        );
-      default:
-        return Container();
-    }
-  }
+  final _nicknameController = TextEditingController();
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -117,61 +33,82 @@ class _GenerateAdressingKeyState extends State<GenerateAdressingKey> {
             children: [
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 16),
-                child: FormField<String>(
-                  builder: (FormFieldState<String> state) {
-                    return InputDecorator(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                      ),
-                      child: DropdownButtonHideUnderline(
-                        child: DropdownButton<String>(
-                          dropdownColor: Colors.white,
-                          hint: Text("Tipo da chave de endereçamento"),
-                          focusColor: Colors.red,
-                          value: selectedKeyType,
-                          isDense: true,
-                          onChanged: (newValue) {
-                            setState(() {
-                              selectedKeyType = newValue;
-                              _keyController.clear();
-                            });
-                            verifyInputHasText(newValue);
-                          },
-                          items: keyTypes.map((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(
-                                value,
-                                style: TextStyle(color: darkColor),
-                              ),
-                            );
-                          }).toList(),
-                        ),
-                      ),
-                    );
-                  },
+                child: TextFormField(
+                  controller: _nicknameController,
+                  keyboardType: TextInputType.text,
+                  autofocus: true,
+                  
+                  style: TextStyle(
+                    color: Theme.of(context).primaryColorDark,
+                  ),
+                  decoration: InputDecoration(
+                      labelText: 'Apelido do Cortador',
+                      border: OutlineInputBorder(),
+                      hintText: 'Ex.: Cortador Casa 1'),
+                ),
+              
+              ),
+              Card(
+              color: lightColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                Container(
+                width: double.infinity,
+                padding: EdgeInsets.all(16),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                  Text('Nº série 115LH2O-O',
+                  style: Theme.of(context).textTheme.headline3.copyWith(color: primaryColor)),
+                  Text('90% de bateria restante',
+                  style: Theme.of(context).textTheme.headline3.copyWith(color: tertiartColor)),
+                  Text('Modelo: SMARTGRASS-MC-40L-1800W',
+                  style: Theme.of(context).textTheme.headline3.copyWith(color: writeColor)),
+                  Text('Potência: 1800w',
+                  style: Theme.of(context).textTheme.headline3.copyWith(color: writeColor)),
+                  Text('Voltagem: 220v',
+                  style: Theme.of(context).textTheme.headline3.copyWith(color: writeColor)),
+                  Text('Motor: Monofásico',
+                  style: Theme.of(context).textTheme.headline3.copyWith(color: writeColor)),
+                  Text('Faixa de Corte: variável',
+                  style: Theme.of(context).textTheme.headline3.copyWith(color: writeColor)),
+                  Text('Rotação: 60Hz',
+                  style: Theme.of(context).textTheme.headline3.copyWith(color: writeColor)),
+                  Text('Rotação: 3600rpm',
+                  style: Theme.of(context).textTheme.headline3.copyWith(color: writeColor)),
+                  ],
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.all(16),
-                child: renderInputType(),
-              )
+            ],
+              ),
+              
+            ),
             ],
           ),
         ),
         Button(
-          title: "Criar",
-          onPressed:
-              _isButtonAvaible ? () => generateAdressingKey(context) : null,
+          title: "Salvar",
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => AdressingKeyPage(nickname: 
+                         _nicknameController.text,
+                      )),
+            );
+          },
         ),
       ],
     );
 
     return BaseScreen(
-      topTitle: "Criar Chave de",
-      bottomTitle: "Endereçamento",
+      topTitle: "Cortador",
       body: body,
     );
   }
