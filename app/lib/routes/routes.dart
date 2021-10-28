@@ -6,6 +6,9 @@ import 'package:app/view/payment/addressing/addressing_payment.dart';
 import 'package:app/view/payment/confirm_payment/payment.dart';
 import 'package:app/view/payment/payment_page.dart';
 import 'package:app/view/qr_codes/qr_codes.dart';
+import 'package:app/view/qr_codes/static/agendamento.dart';
+import 'package:app/view/qr_codes/static/configuracoes.dart';
+import 'package:app/view/qr_codes/static/corte.dart';
 import 'package:app/view/qr_codes/static/generate_qr.dart';
 import 'package:app/view/qr_codes/static/static_page.dart';
 import 'package:app/routes/app_routes.dart';
@@ -33,5 +36,11 @@ class Routes {
     AppRoutes.PAYMENT_MANUAL: (tcx) => PaymentManual(),
     // AppRoutes.ADRESSING_PAYMENT: (tcx) => AddressingPayment(),
     AppRoutes.TRANSACTIONS: (tcx) => Transactions(),
+    AppRoutes.CORTE: (tcx) => Corte(),
+    AppRoutes.AGENDAR: (tcx) => Agendar(),
+
+
+
+  
   };
 }

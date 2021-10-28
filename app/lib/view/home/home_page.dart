@@ -296,7 +296,7 @@ class _HomePageState extends State<HomePage> {
                           icon: Icons.settings,
                           onPressed: () {
                             Navigator.of(context)
-                                .pushNamed(AppRoutes.DASHBOARD_PAGE);
+                                .pushNamed(AppRoutes.CONFIG);
                           },
                         )
                       ],
