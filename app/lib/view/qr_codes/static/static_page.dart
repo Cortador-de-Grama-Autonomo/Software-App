@@ -1,3 +1,4 @@
+import 'package:app/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
@@ -29,7 +30,8 @@ class _ScanScreenState extends State<ScanScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Scanner"),
+        title: Text("Ler QR Code"),
+        backgroundColor: primaryColor,
       ),
        body: QRView(
         key: qrKey,
