@@ -5,10 +5,19 @@ import 'package:app/widgets/main_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class Configuracao extends StatelessWidget {
+class Configuracao extends StatefulWidget {
   final String altura;
-  Configuracao({Key key, this.altura})
+  final Map<String, String> dados;
+
+  Configuracao({Key key, this.altura, this.dados})
       : super(key: key);
+       @override
+  _ConfiguracaoState createState() => _ConfiguracaoState();
+}
+  class _ConfiguracaoState extends State<Configuracao> {
+  initState() {
+    super.initState();
+    }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +59,13 @@ class Configuracao extends StatelessWidget {
                     '    Data:  30 de Outubro de 2021',
                     style: Theme.of(context).textTheme.headline3.copyWith(color:darkColor)
                   ),
-          
+
+                  SizedBox(height: 16),
+
+                   Text(
+                    '    Hora:  13:00',
+                    style: Theme.of(context).textTheme.headline3.copyWith(color:darkColor)
+                  ),
                   SizedBox(height: 16),
 
                   Text(
@@ -63,8 +78,7 @@ class Configuracao extends StatelessWidget {
           
                   SizedBox(height: 16),
 
-                  Text(
-                    altura != null ? altura : '2 cm',
+                  Text(widget.altura != null ? widget.altura : '   2 cm',
                     style: Theme.of(context).textTheme.headline3.copyWith(color:darkColor)
                   ),
           

@@ -20,7 +20,8 @@ class _AgendarState extends State<Agendar> {
   }
 
   bool _isButtonAvaible = false;
-  final _nicknameController = TextEditingController();
+  final _dataControler = TextEditingController();
+  final _horaControler = TextEditingController();
  
 
   @override
@@ -34,7 +35,7 @@ class _AgendarState extends State<Agendar> {
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 child: TextFormField(
-                  controller: _nicknameController,
+                  controller: _dataControler,
                   keyboardType: TextInputType.text,
                   autofocus: true,
                   
@@ -52,7 +53,7 @@ class _AgendarState extends State<Agendar> {
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 child: TextFormField(
-                  controller: _nicknameController,
+                  controller: _horaControler,
                   keyboardType: TextInputType.text,
                   autofocus: true,
                   
@@ -71,15 +72,17 @@ class _AgendarState extends State<Agendar> {
         ),
         Button(
           title: "Salvar",
-          // onPressed: () {
-          //   Navigator.pushReplacement(
-          //     context,
-          //     MaterialPageRoute(
-          //         builder: (context) => Configuracao(nickname: 
-          //                _nicknameController.text,
-          //             )),
-          //   );
-          // },
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => Configuracao(dados: {
+                    'data': _dataControler.text,
+                    'hora': _horaControler.text,
+                  }  
+                      )),
+            );
+          },
         ),
       ],
     );

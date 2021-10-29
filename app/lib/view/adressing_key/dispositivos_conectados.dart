@@ -99,6 +99,39 @@ class _AdressingKeyPageState extends State<AdressingKeyPage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                Row(
+                   mainAxisAlignment: MainAxisAlignment.end,
+                   crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+              PopupMenuButton(
+                icon: Icon(
+                  Icons.more_vert,
+                  color: Theme.of(context).primaryColor,
+                  size: 32,
+                ),
+          onSelected: (value) => {
+            setState(() {
+              if (value == "Editar") {
+                Navigator.of(context).pushNamed(AppRoutes.GENERATE_ADRESSING_KEY);
+              } else if (value == "Deletar") {
+                showToast();
+              }
+            })
+          },
+          itemBuilder: (BuildContext context) {
+            return ["Editar", "Deletar"].map((String testString) {
+              return PopupMenuItem(
+                value: testString,
+                child: Text(
+                  testString,
+                  style: Theme.of(context).textTheme.headline3,
+                ),
+              );
+            }).toList();
+          },
+              ),
+                  ],
+                ),
                 Container(
                 width: double.infinity,
                 padding: EdgeInsets.all(16),
@@ -129,33 +162,7 @@ class _AdressingKeyPageState extends State<AdressingKeyPage> {
                   ],
                 ),
               ),
-              PopupMenuButton(
-                icon: Icon(
-                  Icons.more_vert,
-                  color: Theme.of(context).primaryColor,
-                  size: 32,
-                ),
-          onSelected: (value) => {
-            setState(() {
-              if (value == "Editar") {
-                Navigator.of(context).pushNamed(AppRoutes.GENERATE_ADRESSING_KEY);
-              } else if (value == "Deletar") {
-                showToast();
-              }
-            })
-          },
-          itemBuilder: (BuildContext context) {
-            return ["Editar", "Deletar"].map((String testString) {
-              return PopupMenuItem(
-                value: testString,
-                child: Text(
-                  testString,
-                  style: Theme.of(context).textTheme.headline3,
-                ),
-              );
-            }).toList();
-          },
-              ),
+              
                 ],
               ),
               
@@ -164,17 +171,6 @@ class _AdressingKeyPageState extends State<AdressingKeyPage> {
           ],
              
         ),
-        Positioned(
-          bottom: 30,
-          right: 0,
-          child: FloatingActionButton(
-            backgroundColor: Color(0xff003E7E),
-            child: Icon(Icons.add),
-            onPressed: () {
-              Navigator.of(context).pushNamed(AppRoutes.GENERATE_ADRESSING_KEY);
-            },
-          ),
-        )
       ],
     );
 

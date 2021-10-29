@@ -39,8 +39,6 @@ class _MapaState extends State<Mapa> {
     return Column(
       children: [
             Container(
-          child: RaisedButton( 
-            color: lightColor,
           child:  Card(
         elevation: 3,
         color: lightColor,
@@ -70,9 +68,7 @@ class _MapaState extends State<Mapa> {
             
           ],
         ),
-      ),
-      onPressed: () {
-              Navigator.of(context).pushNamed(AppRoutes.TRANSACTIONS);}
+
       ),
     ),
         Container(
@@ -127,7 +123,7 @@ class _MapaState extends State<Mapa> {
       ButtonOther(
           title: "Selecionar",
           onPressed: () {
-            Navigator.of(context).pushNamed(AppRoutes.TRANSACTIONS);
+            Navigator.of(context).pushNamed(AppRoutes.HOME_PAGE);
         }
       ),
  

@@ -99,8 +99,8 @@ Padding renderAltura() {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                  builder: (context) => Configuracao(altura: 
-                         _alturaController.text,
+                  builder: (context) => Configuracao(altura:  
+                         selectedAltura,
                       )),
             );
           },

@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
   InkWell renderBalanceCard(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).pushNamed(AppRoutes.TRANSACTIONS);
+        Navigator.of(context).pushNamed(AppRoutes.MAPA);
       },
       child: Card(
         elevation: 3,
@@ -92,7 +92,7 @@ class _HomePageState extends State<HomePage> {
                       // Coordenada central do mapa.
                         center: LatLng(-15.799862, -47.864195),
                         // Quantidade de zoom do mapa.
-                        zoom: 17),
+                        zoom: 15),
                     layers: [
                       // Url do mapa.
                       TileLayerOptions(
@@ -183,13 +183,25 @@ class _HomePageState extends State<HomePage> {
         color: secondaryColor,
         child: Container(
           padding: EdgeInsets.all(10.0),
-          child: Column(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text('Ligar', style: Theme.of(context).textTheme.headline3.copyWith(color: Colors.white)),
-              Text('Desligar', style: Theme.of(context).textTheme.headline3.copyWith(color: Colors.white)),
-              Icon(Icons.power_settings_new,  color: Colors.white),
+              Container(
+                child: Icon(Icons.power_settings_new,  color: Colors.white),
+                padding: EdgeInsets.all(10.0),
+              ),
+              Padding(padding: EdgeInsets.only()),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                Text('    Ligar', style: Theme.of(context).textTheme.headline3.copyWith(color: Colors.white)),
+                Text('    Desligar', style: Theme.of(context).textTheme.headline3.copyWith(color: Colors.white)),
+                ],
+              )
+              
+              
             ],
           ),
         ),
@@ -204,17 +216,25 @@ class _HomePageState extends State<HomePage> {
         color: secondaryColor,
         child: Container(
           padding: EdgeInsets.all(10.0),
-          child: Column(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Text('Pausar cortador',
-              style: Theme.of(context).textTheme.headline3.copyWith(color: Colors.white),
+              Container(
+                child: Icon(Icons.pause,  color: Colors.white),
+                padding: EdgeInsets.all(10.0),
               ),
-              Icon(Icons.pause, color: Colors.white,),
-            ],
+              Padding(padding: EdgeInsets.only()),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                Text('    Pausar', style: Theme.of(context).textTheme.headline3.copyWith(color: Colors.white)),
+                ],
           ),
+            ],
         ),
+      ),
       ),
     );
   }
@@ -243,6 +263,7 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         renderIncomeCard(),
+                        
                         Padding(
                           padding: EdgeInsets.all(4.0),
                         ),

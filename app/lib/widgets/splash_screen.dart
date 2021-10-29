@@ -17,7 +17,7 @@ class _SplashState extends State<Splash> with TickerProviderStateMixin {
   goTo() {
     new Future.delayed(
       const Duration(seconds: 3),
-      () => Navigator.of(context).pushNamed(AppRoutes.HOME_PAGE),
+      () => Navigator.of(context).pushNamed(AppRoutes.LOGIN_PAGE),
     );
   }
 

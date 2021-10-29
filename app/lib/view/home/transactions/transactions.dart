@@ -65,6 +65,7 @@ class _TransactionsState extends State<Transactions> {
                   ),
                   Text(
                     "Cortador de grama com baixo nível de energia. Conecte o cortados a fonte de energia.",
+                    style: Theme.of(context).textTheme.headline3.copyWith(color: darkColor)
                   ),
                   SizedBox(
                     height: 32,
