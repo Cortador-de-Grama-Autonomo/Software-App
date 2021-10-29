@@ -1,3 +1,4 @@
+import 'package:app/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
@@ -50,7 +51,7 @@ class _QRCodePageState extends State<QRCodePage> {
                 padding: EdgeInsets.only(bottom: 24.0),
                 child: Text(
                   'Ticket: $ticket',
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 20, color: darkColor),
                 ),
               ),
             ElevatedButton.icon(
