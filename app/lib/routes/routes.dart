@@ -28,7 +28,7 @@ class Routes {
     AppRoutes.QR_CODE_PAGE: (tcx) => QRCodePage(),
     AppRoutes.SUCCESS_SCREEN: (tcx) => SuccesScreen(),
     AppRoutes.ERROR_SCREEN: (tcx) => ErrorScreen(),
-    // AppRoutes.GENERATE_QR_CODE: (tcx) => GenerateQr(),
+    AppRoutes.GENERATE_QR_CODE: (tcx) => QRCodeReader(),
     AppRoutes.SPLASH_PAGE: (tcx) => Splash(),
     AppRoutes.LOGIN_PAGE: (tcx) => Login(),
     AppRoutes.ADRESSING_KEY: (tcx) => AdressingKeyPage(),

@@ -2,14 +2,14 @@ import 'package:app/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
-class QRCodePage extends StatefulWidget {
-  QRCodePage({key}) : super(key: key);
+class QRCodeReader extends StatefulWidget {
+  QRCodeReader({key}) : super(key: key);
 
   @override
-  _QRCodePageState createState() => _QRCodePageState();
+  _QRCodeReaderState createState() => _QRCodeReaderState();
 }
 
-class _QRCodePageState extends State<QRCodePage> {
+class _QRCodeReaderState extends State<QRCodeReader> {
   String ticket = '';
   List<String> tickets = [];
 
@@ -20,6 +20,7 @@ class _QRCodePageState extends State<QRCodePage> {
       false,
       ScanMode.QR,
     );
+    print(code);
     setState(() => ticket = code != '-1' ? code : 'Não validado');
 
     // Stream<dynamic>? reader = FlutterBarcodeScanner.getBarcodeStreamReceiver(

@@ -13,6 +13,12 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+
+final _email = TextEditingController();
+final _senha = TextEditingController();
+
+
+
   Widget button() {
     return (new MaterialButton(
       height: 60.0,
@@ -57,7 +63,10 @@ class _LoginState extends State<Login> {
            Padding(
               //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
               padding: EdgeInsets.only(left: 50.0, right: 50.0, top: 50, bottom: 50),
-              child: TextField(
+              child: TextFormField(
+                controller: _email,
+                keyboardType: TextInputType.text,
+                  autofocus: true,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Email',
@@ -68,9 +77,10 @@ class _LoginState extends State<Login> {
               padding: const EdgeInsets.only(
                   left: 50.0, right: 50.0, top: 120, bottom: 0),
               //padding: EdgeInsets.symmetric(horizontal: 15),
-              child: TextField(
-
-                obscureText: true,
+              child: TextFormField(
+                controller: _senha,
+                keyboardType: TextInputType.text,
+                autofocus: true,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Password',

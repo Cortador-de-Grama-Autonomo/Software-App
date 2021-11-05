@@ -18,7 +18,6 @@ class GenerateAdressingKey extends StatefulWidget {
 class _GenerateAdressingKeyState extends State<GenerateAdressingKey> {
   initState() {
     super.initState();
-    getJSONData();
     getCutter();
   }
   String response;
@@ -27,22 +26,16 @@ class _GenerateAdressingKeyState extends State<GenerateAdressingKey> {
 
   void getCutter() async {
     try {
-      String usernameResponse = await cutterController.getCutt(id: 1);
+      var usernameResponse = await cutterController.getCutt(id: 1);
       setState(() {
-        aaaa=usernameResponse;
-        print(aaaa);
+        response = usernameResponse;
+        print(response);
       });
     } catch (err) {
       print(err);
     }
   }
 
-   Future getJSONData() async {
-    var url = 'https://cortador-api.herokuapp.com/grassmachine/1';
-    var response = await http.get(url);
-    print(response);
-   }
-  
 
 
   bool _isButtonAvaible = false;
@@ -91,24 +84,23 @@ class _GenerateAdressingKeyState extends State<GenerateAdressingKey> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                  Text('Nº série 115LH2O-O',
+                  Text('Nº série: ${response[2]}',
                   style: Theme.of(context).textTheme.headline3.copyWith(color: primaryColor)),
                   Text('90% de bateria restante',
                   style: Theme.of(context).textTheme.headline3.copyWith(color: tertiartColor)),
-                  Text('Modelo: SMARTGRASS-MC-40L-1800W',
+                  Text('Modelo: ${response[4]}',
                   style: Theme.of(context).textTheme.headline3.copyWith(color: writeColor)),
-                  Text('Potência: 1800w',
+                  Text('Potência: ${response[5]}',
                   style: Theme.of(context).textTheme.headline3.copyWith(color: writeColor)),
-                  Text('Voltagem: 220v',
+                  Text('Voltagem: ${response[6]}',
                   style: Theme.of(context).textTheme.headline3.copyWith(color: writeColor)),
-                  Text('Motor: Monofásico',
+                  Text('Motor: ${response[7]}',
                   style: Theme.of(context).textTheme.headline3.copyWith(color: writeColor)),
-                  Text('Faixa de Corte: variável',
+                  Text('Faixa de Corte: ${response[8]}',
                   style: Theme.of(context).textTheme.headline3.copyWith(color: writeColor)),
-                  Text('Rotação: 60Hz',
+                  Text('Rotação: ${response[9]}',
                   style: Theme.of(context).textTheme.headline3.copyWith(color: writeColor)),
-                  Text('Rotação: 3600rpm',
-                  style: Theme.of(context).textTheme.headline3.copyWith(color: writeColor)),
+                  
                   ],
                 ),
               ),
