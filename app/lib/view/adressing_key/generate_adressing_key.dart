@@ -5,6 +5,7 @@ import 'package:app/widgets/button.dart';
 import 'package:app/controller/key_adressing.controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 import 'dispositivos_conectados.dart';
 
@@ -17,7 +18,32 @@ class GenerateAdressingKey extends StatefulWidget {
 class _GenerateAdressingKeyState extends State<GenerateAdressingKey> {
   initState() {
     super.initState();
+    getJSONData();
+    getCutter();
   }
+  String response;
+  String aaaa;
+  KeyAdressingController cutterController = KeyAdressingController();
+
+  void getCutter() async {
+    try {
+      String usernameResponse = await cutterController.getCutt(id: 1);
+      setState(() {
+        aaaa=usernameResponse;
+        print(aaaa);
+      });
+    } catch (err) {
+      print(err);
+    }
+  }
+
+   Future getJSONData() async {
+    var url = 'https://cortador-api.herokuapp.com/grassmachine/1';
+    var response = await http.get(url);
+    print(response);
+   }
+  
+
 
   bool _isButtonAvaible = false;
   final _nicknameController = TextEditingController();
@@ -31,6 +57,7 @@ class _GenerateAdressingKeyState extends State<GenerateAdressingKey> {
         Container(
           child: Column(
             children: [
+              
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 child: TextFormField(

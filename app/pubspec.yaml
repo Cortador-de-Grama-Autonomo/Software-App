@@ -21,6 +21,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  shared_preferences: ^0.5.12
   flutter_map: ^0.8.2
   latlong: ^0.6.1
   flutter_barcode_scanner: ^2.0.0

@@ -21,7 +21,7 @@ class AppRoutes {
   static const PAYMENT_MANUAL = '/payment/payment-manual';
   static const ADRESSING_PAYMENT = '/payment/adressing-payment';
   static const ADDRESSING_CONFIRM = '/payment/addressing-payment';
-  static const TRANSACTIONS = '/home/transactions/transactions';
+  static const NOTIFICACAO = '/home/notificacao';
   static const CONFIG = '/qr-code/configuracao';
   static const CORTE = '/qr-code/corte';
   static const AGENDAR = '/qr-code/agendamento';

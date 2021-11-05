@@ -80,7 +80,7 @@ class _PaymentManualState extends State<PaymentManual> {
         ),
       ),
       onPressed: () {
-              Navigator.of(context).pushNamed(AppRoutes.TRANSACTIONS);}
+              Navigator.of(context).pushNamed(AppRoutes.NOTIFICACAO);}
       ),
     ),
         Container(
@@ -130,7 +130,7 @@ class _PaymentManualState extends State<PaymentManual> {
         ),
       ),
       onPressed: () {
-              Navigator.of(context).pushNamed(AppRoutes.TRANSACTIONS);}
+              Navigator.of(context).pushNamed(AppRoutes.NOTIFICACAO);}
       ),
     ),
     Container(
@@ -180,7 +180,7 @@ class _PaymentManualState extends State<PaymentManual> {
         ),
       ),
       onPressed: () {
-              Navigator.of(context).pushNamed(AppRoutes.TRANSACTIONS);}
+              Navigator.of(context).pushNamed(AppRoutes.NOTIFICACAO);}
       ),
     ),
     

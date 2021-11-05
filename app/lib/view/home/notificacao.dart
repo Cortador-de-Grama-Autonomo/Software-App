@@ -1,6 +1,6 @@
 import 'package:app/controller/home.controller.dart';
 import 'package:app/controller/transaction.controller.dart';
-import 'package:app/model/transaction.model.dart';
+import 'package:app/model/notificacao.model.dart';
 import 'package:app/theme/colors.dart';
 import 'package:app/widgets/base_screen.dart';
 import 'package:app/widgets/transaction_tile.dart';
@@ -8,21 +8,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 
-class Transactions extends StatefulWidget {
+class Notificacao extends StatefulWidget {
   @override
-  _TransactionsState createState() => _TransactionsState();
+  _NotificacaoState createState() => _NotificacaoState();
 }
 
-class _TransactionsState extends State<Transactions> {
+class _NotificacaoState extends State<Notificacao> {
   ScrollController _scrollController = ScrollController();
   int _page = 1;
   bool canScroll = true;
-  List<TransactionModel> transactions = List<TransactionModel>();
+  List<NotificacaoModel> transactions = List<NotificacaoModel>();
   String balance = "0";
 
   dynamic person;
   dynamic account;
-
 
 
   @override
@@ -79,12 +78,7 @@ class _TransactionsState extends State<Transactions> {
             scrollDirection: Axis.vertical,
             shrinkWrap: true,
             controller: _scrollController,
-            itemCount: transactions.length != null ? transactions.length : 0,
-            itemBuilder: (BuildContext context, int index) {
-              return TransactionTile(
-                transactions[index],
-              );
-            },
+            itemCount: transactions.length != null ? transactions.length : 0, itemBuilder: (BuildContext context, int index) {  },
           ))
         ],
       ),

@@ -1,22 +1,22 @@
 import 'package:flutter/foundation.dart';
 
 class HomeModel {
-  final String id;
-  final String balance;
+  final String agendamento;
+  final String apelido;
 
   HomeModel({
-    this.id,
-    @required this.balance,
+    this.agendamento,
+    this.apelido
   });
 
   factory HomeModel.fromJson(Map<String, dynamic> json) {
     return HomeModel(
-      id: json['id'],
-      balance: json['balance'],
+      agendamento: json['agendamento'],
+      apelido: json['apelido']
     );
   }
 
   Map<String, dynamic> toJson() {
-    return {'id': this.id, 'balance': this.balance};
+    return {'agendamento': this.agendamento, 'apelido': this.apelido};
   }
 }

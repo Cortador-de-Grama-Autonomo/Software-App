@@ -1,7 +1,7 @@
 import 'package:app/view/adressing_key/dispositivos_conectados.dart';
 import 'package:app/view/adressing_key/generate_adressing_key.dart';
 import 'package:app/view/home/home_page.dart';
-import 'package:app/view/home/transactions/transactions.dart';
+import 'package:app/view/home/notificacao.dart';
 import 'package:app/view/payment/add_area.dart';
 import 'package:app/view/payment/addressing/addressing_payment.dart';
 import 'package:app/view/payment/confirm_payment/payment.dart';
@@ -25,10 +25,9 @@ class Routes {
   static Map<String, Widget Function(BuildContext)> routes = {
     AppRoutes.HOME_PAGE: (tcx) => HomePage(),
     // AppRoutes.PAYMENT_PAGE: (tcx) => PaymentPage(),
-    AppRoutes.QR_CODE_PAGE: (tcx) => QrCodePage(),
+    AppRoutes.QR_CODE_PAGE: (tcx) => QRCodePage(),
     AppRoutes.SUCCESS_SCREEN: (tcx) => SuccesScreen(),
     AppRoutes.ERROR_SCREEN: (tcx) => ErrorScreen(),
-    AppRoutes.STATIC_QR_CODE: (tcx) => QRCodePage(),
     // AppRoutes.GENERATE_QR_CODE: (tcx) => GenerateQr(),
     AppRoutes.SPLASH_PAGE: (tcx) => Splash(),
     AppRoutes.LOGIN_PAGE: (tcx) => Login(),
@@ -37,7 +36,7 @@ class Routes {
     // AppRoutes.CONFIRM_PAYMENT: (tcx) => Payment(),
     AppRoutes.PAYMENT_MANUAL: (tcx) => PaymentManual(),
     // AppRoutes.ADRESSING_PAYMENT: (tcx) => AddressingPayment(),
-    AppRoutes.TRANSACTIONS: (tcx) => Transactions(),
+    AppRoutes.NOTIFICACAO: (tcx) => Notificacao(),
     AppRoutes.CONFIG: (tcx) => Configuracao(),
     AppRoutes.CORTE: (tcx) => Corte(),
     AppRoutes.AGENDAR: (tcx) => Agendar(),

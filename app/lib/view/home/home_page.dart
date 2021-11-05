@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong/latlong.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 
@@ -20,46 +21,48 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // HomeController homecontroller = HomeController();
-  String balance = "0";
-  String cashIn = "0";
-  String cashOut = "0";
+  HomeController homecontroller = HomeController();
+
   dynamic account;
+  String username;
+  String agendamento;
 
-  Future<void> getUserData() async {
+   Future<void> getUserData() async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    String accountStorage = localStorage.getString('account');
 
+    setState(() {
+      account = jsonDecode(accountStorage);
+    });
   }
-
   @override
   initState() {
     super.initState();
     print("atualizou");
 
-    // getUserData().then((value) =>
-    //     {getBalance(account["branch_code"], account["account_number"])});
   }
 
-  // void getBalance(String agencyNumber, String accountNumber) async {
-  //   try {
-  //     String balanceResponse =
-  //         await homecontroller.getBalance(agencyNumber, accountNumber);
-  //     setState(() {
-  //       balance = balanceResponse;
-  //     });
+void getUserName() async {
+    try {
+      String usernameResponse = await homecontroller.getUserName(account);
+      setState(() {
+        username = usernameResponse;
+      });
+    } catch (err) {
+      print(err);
+    }
+  }
+  void getAgendamneto() async {
+    try {
+      String agendamentoKeyResponse = await homecontroller.getAgendamento(agendamento);
+      setState(() {
+        agendamento = agendamentoKeyResponse;
+      });
+    } catch (err) {
+      print(err);
+    }
+  }
 
-  //     String cashInResponse =
-  //         await homecontroller.getCashIN(agencyNumber, accountNumber);
-  //     setState(() {
-  //       cashIn = cashInResponse;
-  //     });
-
-  //     String cashOutResponse =
-  //         await homecontroller.getCashOut(agencyNumber, accountNumber);
-  //     setState(() {
-  //       cashOut = cashOutResponse;
-  //     });
-  //   } catch (err) {}
-  // }
 
   InkWell renderBalanceCard(BuildContext context) {
     return InkWell(
@@ -148,20 +151,21 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Bom dia Nalu!',
+                    'Bom dia ${account}!',
+                    //['username']
                     style: Theme.of(context).textTheme.headline1.copyWith(color: primaryColor)
                   ),
                   SizedBox(height: 24),
                   
                   Text(
-                      'Cortador conectado: ',
+                      'Cortador conectado:  nada',
                       style: Theme.of(context)
                           .textTheme
                           .headline2
                           .copyWith(fontWeight: FontWeight.w600, color: primaryColor),
                     ),
                   Text(
-                    'Horário de corte:  10:00',
+                    'Horário de corte: ${agendamento}',
                     style: Theme.of(context).textTheme.headline3.copyWith(color:tertiartColor)
                   ),
           

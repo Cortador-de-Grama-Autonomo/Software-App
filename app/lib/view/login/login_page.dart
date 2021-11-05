@@ -19,7 +19,7 @@ class _LoginState extends State<Login> {
       shape: new RoundedRectangleBorder(
           borderRadius: new BorderRadius.circular(10.0)),
       minWidth: 170.0,
-      color: primaryColor,
+      color: tertiartColor,
       textColor: lightColor,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -54,13 +54,42 @@ class _LoginState extends State<Login> {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          Positioned.fill(
-            child: Image.asset(
-              "lib/assets/images/fundo.png",
-              fit: BoxFit.fitWidth,
-              alignment: Alignment.bottomLeft,
+           Padding(
+              //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
+              padding: EdgeInsets.only(left: 50.0, right: 50.0, top: 50, bottom: 50),
+              child: TextField(
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Email',
+                    hintText: 'Enter valid email id as abc@gmail.com'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                  left: 50.0, right: 50.0, top: 120, bottom: 0),
+              //padding: EdgeInsets.symmetric(horizontal: 15),
+              child: TextField(
+
+                obscureText: true,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Password',
+                    hintText: 'Enter secure password'),
+              ),
+            ),
+          FlatButton(
+            onPressed: (){
+              //TODO FORGOT PASSWORD SCREEN GOES HERE
+            },
+            padding: const EdgeInsets.only(
+                  left: 0, right: 283, top: 190, bottom: 0),
+            child: Text(
+              'Esqueceu a senha?',
+              style: TextStyle(color: tertiartColor, fontSize: 15),
             ),
           ),
+          
+      
           Center(child: Container(width: 170, child: button())),
         ],
       ),

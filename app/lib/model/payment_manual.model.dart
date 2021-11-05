@@ -1,36 +1,40 @@
 import 'package:flutter/foundation.dart';
 
 class PaymentManualModel {
-  final String cpfCnpj;
-  final String bank;
-  final String agency;
-  final String account;
-  final String value;
+  final String id;
+  final String name;
+  final String description;
+  final String latitude;
+  final String longitude;
+
+
 
   PaymentManualModel(
-      {@required this.cpfCnpj,
-      @required this.bank,
-      @required this.agency,
-      @required this.account,
-      @required this.value});
+      {this.id,
+      this.name,
+      this.description,
+      this.latitude,
+      this.longitude
+      });
 
   factory PaymentManualModel.fromJson(Map<String, dynamic> json) {
     return PaymentManualModel(
-      cpfCnpj: json['cpfCnpj'],
-      bank: json['bank'],
-      agency: json['agency'],
-      account: json['account'],
-      value: json['value'],
+      id: json['id'],
+      name: json['name'],
+      description: json['description'],
+      latitude: json['latitude'],
+      longitude: json['longitude'],
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'cpfCnpj': this.cpfCnpj,
-      'bank': this.bank,
-      'agency': this.agency,
-      'account': this.account,
-      'value': this.value,
+      'id': this.id,
+      'name': this.name,
+      'description': this.description,
+      'latitude': this.latitude,
+      'longitude': this.longitude,
+
     };
   }
 }
